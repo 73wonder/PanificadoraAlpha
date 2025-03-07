@@ -75,7 +75,7 @@ public class Main {
             System.out.println("Tipo inválido!");
             return;
         }
-        //estoque.adicionarProduto(produto);
+        //estoque.adicionarProduto(produtos);
         System.out.println("Produto cadastrado com sucesso!");
     }
 
@@ -101,7 +101,7 @@ public class Main {
             if (!novoNome.isEmpty()) {
                 produto.setNome(novoNome);
             }
-            System.out.print("Novo preço (deixe 0 para manter): ");
+            System.out.print("Novo preco (deixe 0 para manter): ");
             double novoPreco = scanner.nextDouble();
             if (novoPreco > 0) {
                 produto.setPreco(novoPreco);
@@ -113,8 +113,20 @@ public class Main {
             }
             System.out.println("Produto modificado com sucesso!");
         } else {
-            System.out.println("Produto não encontrado!");
+            System.out.println("Produto nao encontrado!");
         }
     }
 
+    private static void removerProduto(Estoque estoque, Scanner scanner) {
+
+        System.out.println("Nome do produto a remover: ");
+        String nome = scanner.nextLine();
+        ProdutosPanificadora produto = estoque.buscarProduto(nome);
+        if(produto != null) {
+            estoque.removerProduto(nome);
+            System.out.println("Produto removido com sucesso!");
+        } else {
+            System.out.println("Produto nao encontrado!");
+        }
+    }
 }
