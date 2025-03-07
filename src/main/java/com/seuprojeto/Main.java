@@ -1,6 +1,6 @@
 package com.seuprojeto;
 
-import  com.seuprojeto.produtos.Estoque;
+import com.seuprojeto.produtos.Estoque;
 import com.seuprojeto.produtos.ProdutosPanificadora;
 
 import java.util.HashMap;
@@ -31,7 +31,7 @@ public class Main {
                     modificarProduto(estoque, scanner);
                     break;
                 case 4:
-                    removerProduto(estoque, scanner);
+                    //removerProduto(estoque, scanner);
                     break;
                 case 6:
                     System.out.println("Encerrando o programa...");
@@ -75,7 +75,7 @@ public class Main {
             System.out.println("Tipo inválido!");
             return;
         }
-        estoque.adicionarProduto(produto);
+        //estoque.adicionarProduto(produto);
         System.out.println("Produto cadastrado com sucesso!");
     }
 
@@ -91,5 +91,30 @@ public class Main {
         }
     }
 
+    private static void modificarProduto(Estoque estoque, Scanner scanner) {
+        System.out.print("Nome do produto a modificar: ");
+        String nome = scanner.nextLine();
+        ProdutosPanificadora produto = estoque.buscarProduto(nome);
+        if (produto != null) {
+            System.out.print("Novo nome (deixe em branco para manter): ");
+            String novoNome = scanner.nextLine();
+            if (!novoNome.isEmpty()) {
+                produto.setNome(novoNome);
+            }
+            System.out.print("Novo preço (deixe 0 para manter): ");
+            double novoPreco = scanner.nextDouble();
+            if (novoPreco > 0) {
+                produto.setPreco(novoPreco);
+            }
+            System.out.print("Nova quantidade (deixe 0 para manter): ");
+            int novaQuantidade = scanner.nextInt();
+            if (novaQuantidade > 0) {
+                produto.setQuantidade(novaQuantidade);
+            }
+            System.out.println("Produto modificado com sucesso!");
+        } else {
+            System.out.println("Produto não encontrado!");
+        }
+    }
 
 }
