@@ -31,7 +31,7 @@ public class Main {
                     modificarProduto(estoque, scanner);
                     break;
                 case 4:
-                    //removerProduto(estoque, scanner);
+                    removerProduto(estoque, scanner);
                     break;
                 case 6:
                     System.out.println("Encerrando o programa...");
