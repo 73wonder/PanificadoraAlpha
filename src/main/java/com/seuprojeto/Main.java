@@ -1,17 +1,21 @@
 package com.seuprojeto;
 
 import com.seuprojeto.produtos.Estoque;
+import com.seuprojeto.produtos.ProdutoBolo;
+import com.seuprojeto.produtos.ProdutoPao;
 import com.seuprojeto.produtos.ProdutosPanificadora;
+import com.seuprojeto.produtos.TipoProduto;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.List;
 
-
 public class Main {
     public static void main(String[] args) {
+
         Estoque estoque = new Estoque();
+        VendasService vendasService = new VendasService(estoque);
         Scanner scanner = new Scanner(System.in);
         int opcao;
 
@@ -33,6 +37,8 @@ public class Main {
                 case 4:
                     removerProduto(estoque, scanner);
                     break;
+                case 5:
+                    realizarVenda(estoque, vendasService, scanner);
                 case 6:
                     System.out.println("Encerrando o programa...");
                     break;
@@ -68,18 +74,19 @@ public class Main {
 
         ProdutosPanificadora produto;
         if (tipo == 1) {
-//            ProdutoPao();
+            produto = new ProdutoPao(nome, preco, quantidade);
         } else if (tipo == 2) {
-//            ProdutoBolo();
+            produto = new ProdutoBolo(nome, preco, quantidade);
         } else {
             System.out.println("Tipo inválido!");
             return;
         }
-        //estoque.adicionarProduto(produtos);
+        estoque.adicionarProduto(produto);
         System.out.println("Produto cadastrado com sucesso!");
     }
 
     private static void listarProdutos(Estoque estoque) {
+
         System.out.println("\n--- Lista de Produtos ---");
         List<ProdutosPanificadora> produtos = estoque.listarProdutos();
         if (produtos.isEmpty()) {
@@ -92,6 +99,7 @@ public class Main {
     }
 
     private static void modificarProduto(Estoque estoque, Scanner scanner) {
+
         System.out.print("Nome do produto a modificar: ");
         String nome = scanner.nextLine();
         ProdutosPanificadora produto = estoque.buscarProduto(nome);
@@ -127,6 +135,33 @@ public class Main {
             System.out.println("Produto removido com sucesso!");
         } else {
             System.out.println("Produto nao encontrado!");
+        }
+    }
+
+    private static void realizarVenda(Estoque estoque, VendasService vendasService, Scanner scanner) {
+
+        Map<ProdutosPanificadora, Integer> itens = new HashMap<>();
+        while (true) {
+            System.out.print("Nome do produto a vender (ou 'fim' para encerrar): ");
+            String nome = scanner.nextLine();
+            if (nome.equalsIgnoreCase("fim")) {
+                break;
+            }
+            ProdutosPanificadora produto = estoque.buscarProduto(nome);
+            if (produto != null) {
+                System.out.print("Quantidade: ");
+                int quantidade = scanner.nextInt();
+                scanner.nextLine(); // Limpar buffer
+                itens.put(produto, quantidade);
+            } else {
+                System.out.println("Produto não encontrado!");
+            }
+        }
+        try {
+            vendasService.realizarVenda(itens);
+            System.out.println(vendasService.gerarResumoVenda());
+        } catch (Exception e) {
+            System.out.println("Erro na venda: " + e.getMessage());
         }
     }
 }
