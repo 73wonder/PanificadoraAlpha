@@ -58,7 +58,7 @@ public class Main {
         System.out.println("4. Remover Produto");
         System.out.println("5. Realizar Venda");
         System.out.println("6. Sair");
-        System.out.print("Escolha uma opção: ");
+        System.out.print("Escolha uma opçao: ");
     }
 
     private static void cadastrarProduto(Estoque estoque, Scanner scanner) {
@@ -154,7 +154,7 @@ public class Main {
                 scanner.nextLine(); // Limpar buffer
                 itens.put(produto, quantidade);
             } else {
-                System.out.println("Produto não encontrado!");
+                System.out.println("Produto nao encontrado!");
             }
         }
         try {
