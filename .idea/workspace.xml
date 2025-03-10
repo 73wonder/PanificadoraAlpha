@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="217b9f17-81e6-4378-82ab-1a110a8a70af" name="Changes" comment="Criei a classe pra administrar o Estoque, criei junto as listas para acrescentar o produto.&#10;na Main eu criei a funçao pra Cadastrar os produtos/listar listar">
+    <list default="true" id="217b9f17-81e6-4378-82ab-1a110a8a70af" name="Changes" comment="aaaaaaaaaa">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -99,7 +99,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741378770204</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="aaaaaaaaaa">
+      <option name="closed" value="true" />
+      <created>1741628164616</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1741628164616</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -107,6 +115,7 @@
     <MESSAGE value="Criaçao da classe enum.&#10;Criaçaao de pordutos." />
     <MESSAGE value="So coloquei os getter/setters" />
     <MESSAGE value="Criei a classe pra administrar o Estoque, criei junto as listas para acrescentar o produto.&#10;na Main eu criei a funçao pra Cadastrar os produtos/listar listar" />
-    <option name="LAST_COMMIT_MESSAGE" value="Criei a classe pra administrar o Estoque, criei junto as listas para acrescentar o produto.&#10;na Main eu criei a funçao pra Cadastrar os produtos/listar listar" />
+    <MESSAGE value="aaaaaaaaaa" />
+    <option name="LAST_COMMIT_MESSAGE" value="aaaaaaaaaa" />
   </component>
 </project>
