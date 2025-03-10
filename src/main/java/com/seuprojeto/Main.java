@@ -39,6 +39,7 @@ public class Main {
                     break;
                 case 5:
                     realizarVenda(estoque, vendasService, scanner);
+                    break;
                 case 6:
                     System.out.println("Encerrando o programa...");
                     break;
@@ -151,7 +152,7 @@ public class Main {
             if (produto != null) {
                 System.out.print("Quantidade: ");
                 int quantidade = scanner.nextInt();
-                scanner.nextLine(); // Limpar buffer
+                scanner.nextLine();
                 itens.put(produto, quantidade);
             } else {
                 System.out.println("Produto nao encontrado!");
